@@ -25,8 +25,8 @@ class ProfilesController extends Controller
 	public function store(Request $request, Profile $profiles)
 	{
 		$photo = $request->file('file');
-		$photo_name = 'images/avatars/' .time().'.'.$request->file->getClientOriginalExtension();
-		$photo->move(public_path('images/avatars/'), $photo_name);
+		$photo_name = 'images\avatars\\' .time().'.'.$request->file->getClientOriginalExtension();
+		$photo->move(public_path('images/avatars\\'), $photo_name);
 		
 		$profile = new Profile([
 			'name' => $request->get('name'), 
