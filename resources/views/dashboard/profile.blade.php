@@ -34,7 +34,6 @@
 							<div class="phone-list">
 
 								<div class="input-group phone-input col-md-12">
-									<input type="hidden" name="phone[1][type]" class="type-input" value="" />
 									<input type="text" name="phone[1][number]" class="form-control" placeholder="+1 (999) 999 9999" />
 								</div>
 

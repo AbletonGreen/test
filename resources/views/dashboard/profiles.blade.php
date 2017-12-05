@@ -56,7 +56,13 @@
                       {{ $profile->region->name }}
                     </td>
                     <td>
-                      {{ $profile->phone }}
+						  @foreach ($profile->phones as $phone)
+							<li class="list-group-item">
+								<strong>
+									{{ $phone->value }}
+								</strong>
+							</li>
+		 				@endforeach
                     </td>
                     <td>
                         Edit

@@ -12,4 +12,8 @@ class Profile extends Model
 	{
 		return $this->belongsTo(Region::class);
 	}
+	public function phones()
+	{
+		return $this->hasMany(Phone::class);
+	}
 }

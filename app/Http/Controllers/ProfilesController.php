@@ -22,7 +22,7 @@ class ProfilesController extends Controller
 		return view('dashboard.profile', compact('regions'));
 	}
 	
-	public function store(Request $request)
+	public function store(Request $request, Profile $profiles)
 	{
 		$photo = $request->file('file');
 		$photo_name = 'images/avatars/' .time().'.'.$request->file->getClientOriginalExtension();
@@ -36,8 +36,21 @@ class ProfilesController extends Controller
 			'file' => $photo_name
 			 ]);
 		$profile->save();
+		$profile_id = $profile->id;
 		
-		
+		$allnumbers = $request->phone;
+		foreach ($allnumbers as $numbers)
+			{
+				
+				foreach($numbers as $number)
+				{
+					$phone = new Phone([
+						'value' => $number,
+						'profile_id' => $profile_id
+					]);
+					$phone->save();
+				};
+			};
 		
 		return redirect('dashboard/profiles');
 	}

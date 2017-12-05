@@ -7,8 +7,17 @@
          
          	<div class="profile"> 
 				<h4 class="blog-post-title">{{ $profile->name }} {{ $profile->lastname }}</h4>
-				<h6>{{ $profile->email }} , {{ $profile->phone }}</h6>
-				<h6>{{ $profile->region->name }}</h6>
+				<h6>{{ $profile->email }}</h6>
+				<h6>{{ $profile->region->name }}</h6
+				<p>
+						@foreach ($profile->phones as $phone)
+							<li class="list-group-item">
+								<strong>
+									{{ $phone->value }}
+								</strong>
+							</li>
+		 				@endforeach
+				</p>
 			</div>
           	<br>
          @endforeach
